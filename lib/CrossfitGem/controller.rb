@@ -1,10 +1,12 @@
 class CrossfitGem::Controller 
 
     def call 
-       puts "asdfasdf"
+       self.welcome
     end 
 
-
+    def welcome 
+        puts CrossfitGem::Api.data
+    end 
 
 
 end 

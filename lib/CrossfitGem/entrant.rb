@@ -1,0 +1,4 @@
+class CrossfitGem::Entrant 
+
+
+end 

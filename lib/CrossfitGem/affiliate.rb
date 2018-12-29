@@ -1,0 +1,5 @@
+class CrossfitGem::Affiliate 
+
+
+
+end 
