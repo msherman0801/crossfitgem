@@ -6,4 +6,8 @@ class CrossfitGem::Api
         JSON.parse(info)
     end 
 
+    def find 
+        var = CrossfitGem::Api.data
+    end 
+
 end 
