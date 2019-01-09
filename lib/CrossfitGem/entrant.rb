@@ -15,7 +15,8 @@ class CrossfitGem::Entrant
         @affiliateName = affiliateName
         @age = age 
         @height = height 
-        @weight = weight 
+        @weight = weight
+
     end 
 
     def self.all 
@@ -41,13 +42,17 @@ class CrossfitGem::Entrant
           lastName = entrant["lastName"]
           gender = entrant["gender"]
           regionName = entrant["regionName"]
-          affiliateName = CrossfitGem::Affiliate.new(entrant["affiliateName"]) 
+          if entrant["affiliateName"] == "" || CrossfitGem::Affiliate.all.map{|i| i.name}.include?(entrant["affiliateName"])
+            nil
+          else 
+            affiliateName = CrossfitGem::Affiliate.new(entrant["affiliateName"])
+          end
           age = entrant["age"]
           height = entrant["height"]
           weight = entrant["weight"]
           new_entrant = CrossfitGem::Entrant.create(competitorName, firstName, lastName, gender, regionName, affiliateName, age, height, weight)
-          affiliateName.add_entrant(new_entrant) 
-        end 
+          affiliateName.add_entrant(new_entrant) unless affiliateName == nil
+        end
     end 
             
 
